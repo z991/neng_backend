@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>售后关系管理列表</title>
+    <style>
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            color: #41515a;
+            font-family: 宋体;
+            min-width: 1010px;
+        }
+
+        ul, li, p, dl, dt, dd, input {
+            padding: 0;
+            margin: 0;
+            vertical-align: middle;
+        }
+
+        li, dt, dd {
+            list-style: none;
+        }
+
+        input {
+            outline: none;
+        }
+
+        .box {
+            width: 100%;
+            height: auto;
+        }
+
+        .help {
+            width: 80%;
+            height: 389px;
+            margin: 20px auto;
+            border: 1px solid #d4d4d4;
+        }
+
+        .help .help_l {
+            width: 60%;
+            float: left;
+            height: 349px;
+            margin: 20px;
+
+        }
+
+        .help .help_l .help_t {
+            width: 100%;
+            height: 127px;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        .help .help_l .help_t .wenhou {
+            width: 590px;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            color: #333;
+            font-size: 24px;
+            font-family: "微软雅黑";
+        }
+
+        .help .help_l .help_t .dian {
+            font-size: 18px;
+            margin-top: 10px;
+            font-family: "微软雅黑";
+        }
+
+        .help .help_rr {
+            width: 34%;
+            height: 387px;
+            float: right;
+            border-left: 1px solid #d4d4d4;
+        }
+
+        .help .help_r {
+            background: url(http://s2.i.qingcdn.com/minioss/oa/help.png) no-repeat center center;
+            width: 335px;
+            height: 389px;
+            margin: 0 auto;
+        }
+
+        .help .help_l .help_d {
+            width: 460px;
+            height: 167px;
+            padding: 20px;
+        }
+
+        .help .help_l .help_d .pian {
+            width: 473px;
+            height: 163px;
+        }
+
+        .help .help_l .help_d .pian .tu {
+            width: 142px;
+            height: 139px;
+            float: left;
+            border-radius: 5px;
+            border: 1px solid #d4d4d4;
+        }
+
+        .help .help_l .help_d .pian .xie {
+            font-family: "微软雅黑";
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .help .help_l .help_d .pian .zi {
+            width: 300px;
+            height: 139px;
+            float: right;
+            font-family: "微软雅黑";
+            font-size: 18px;
+        }
+
+        .help .help_l .help_d .pian .zi .han {
+            color: #333;
+            font-size: 36px;
+            font-family: "微软雅黑";
+            margin-left: 10px;
+        }
+
+        .help .help_l .help_d .pian .tel {
+            font-size: 12px;
+        }
+
+        .help .help_l .help_d .xie {
+            font-style: italic;
+            font-size: 14px;
+            font-family: "微软雅黑";
+            color: #999;
+        }
+
+        /*咨询入口*/
+        .Zxs {
+            width: 64px;
+            /*overflow:hidden;*/
+            position: fixed;
+            right: 25px;
+            bottom: 100px;
+            z-index: 30;
+        }
+
+        .Zxs li {
+            width: 64px;
+            height: 64px;
+            background: #83c1f4;
+            margin-top: 2px;
+            position: relative;
+        }
+
+        .Zxs li .Eyj {
+            position: absolute;
+            left: -154px;
+            top: -40px;
+            display: none;
+            border: 1px solid transparent;
+        }
+
+        .Zxs li:hover {
+            background: #51a8f2;
+        }
+
+        .Zxs li .Dbs {
+            width: 100%;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .Zxs li .Dbs img {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .Zxs li .Fnts {
+            width: 100%;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            font-family: 宋体;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 400;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        //定义NTKF_PARAM变量
+        window.NTKF_PARAM = {
+            siteid: "kf_8008",
+            settingid: "{{reception_group_id}}",
+            uid: "{{user_id}}",
+            uname: "{{user_id}}"
+        };
+        //加载小能脚本
+        (function () {
+            var doc = window.document;
+            var nt = doc.createElement('script');
+            nt.type = 'text/javascript';
+            nt.async = true;
+            nt.src = doc.location.protocol + "//dl.ntalker.com/js/xn6/ntkfstat.js?siteid={{site_id}}";
+            var sn = doc.getElementsByTagName('head')[0];
+            sn.appendChild(nt, sn);
+        })();
+        $(document).ready(function () {
+            $(document).find('.Zxs a').eq(0).bind('click', function () {
+                NTKF.im_openInPageChat();
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="help">
+        <div class="help_l">
+            <div class="help_t">
+                <p class="wenhou">亲爱的:</p>
+                <p class="wenhou">我是{{company_name}}的专属客户经理，{{manager}}</p>
+                <p class="dian">点击<span class="" style="color:#1178b6;font-weight:700;">右侧售后</span>图标发起咨询，我和我的同事将竭诚为您服务！
+                </p>
+            </div>
+            <div class="help_d" style="width:95%">
+                <dl class="pian" style="width:100%">
+                    <dd class="tu"><img src="{{avatar}}" alt="" width="142px" height="139px"/></dd>
+                    <dt class="zi" style="width:74%">
+                        <span class="han">{{manager}}</span> &nbsp;&nbsp;&nbsp;客户经理
+                        <p class="tel" style="margin-top: 17px;margin-left: 13px;">
+                            在线客服：{{phone_number}}<br/>
+                            客服邮箱：{{email}}<br/>
+                            网址：{{url}}<br/>
+                    </dt>
+                </dl>
+                一句话介绍
+                <p class="xie">“{{desc}}”</p>
+            </div>
+        </div>
+        <div class="help_rr">
+            <div class="help_r">
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="Zxs"><a href="javascript:">
+    <li>
+        <div class="Dbs"><img src="http://s2.i.qingcdn.com/minioss/oa/sazx.png" alt=""></div>
+        <div class="Fnts">售后咨询</div>
+    </li>
+</a></ul>
+</body>
+</html>

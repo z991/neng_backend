@@ -1,0 +1,73 @@
+version: '3.1'
+services:
+  redis:
+    image: 'reg.xiaoneng.cn/library/redis:3.2'
+    container_name: redis
+    restart: always
+    ports:
+      - '6379:6379'
+  oa_frontend:
+    image: 'reg.xiaoneng.cn/oa/frontend:develop'
+    container_name: oa_frontend
+    restart: always
+    ports:
+      - '80:80'
+    depends_on:
+      - oa_backend
+    environment:
+      OA_BACKEND_URL: 192.168.30.109
+      OA_FRONTEND_URL: 192.168.30.109
+  oa_backend:
+    image: 'reg.xiaoneng.cn/oa/backend:develop'
+    container_name: oa_backend
+    volumes:
+      - '/opt/oa_logs/:/src/log'
+    environment:
+      oa_env: develop
+      OA_DB_HOST: 192.168.30.109
+      OA_DB_NAME: oa_platform
+      OA_DB_PWD: tYhep69NeUckDNLnCgxs
+      OA_DB_PORT: 3306
+      OA_DB_USER: root
+      OA_REDIS_PORT: 6379
+      OA_REDIS_PWD: 111111
+      OA_REDIS_SERVER: 192.168.30.109
+    restart: always
+    ports:
+      - '8000:8000'
+    depends_on:
+      - redis
+    entrypoint: ''
+  celery-worker:
+    image: 'reg.xiaoneng.cn/oa/backend:develop'
+    container_name: celery-worker
+    volumes:
+      - '/opt/db_backup:/db_backup'
+    command: 'python manage.py celery worker'
+    restart: always
+    environment:
+      C_FORCE_ROOT: "yes"
+      oa_env: develop
+      OA_DB_HOST: 192.168.30.109
+      OA_DB_NAME: oa_platform
+      OA_DB_PWD: tYhep69NeUckDNLnCgxs
+      OA_DB_PORT: 3306
+      OA_DB_USER: root
+      OA_REDIS_PORT: 6379
+      OA_REDIS_PWD: 111111
+      OA_REDIS_SERVER: 192.168.30.109
+    depends_on:
+      - redis
+      - celery-beat
+    entrypoint: ''
+      OA_DB_USER: root
+      OA_REDIS_PORT: 6379
+      OA_REDIS_PWD:''
+      OA_REDIS_SERVER: 192.168.30.109
+    restart: always
+    ports:
+      - '8000:8000'
+    depends_on:
+      - redis
+    entrypoint: ''
+  
