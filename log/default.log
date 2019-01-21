@@ -1,0 +1,6 @@
+[2019-01-20 16:58:00,529] [Thread-1:123145353723904:django.request] [WARNING] [base.get_response Line:152]- Not Found: /
+[2019-01-20 16:58:00,531] [Thread-1:123145353723904:django.server] [WARNING] [basehttp.log_message Line:124]- "GET / HTTP/1.1" 404 74
+[2019-01-20 16:58:01,231] [Thread-3:123145353723904:django.request] [WARNING] [base.get_response Line:152]- Not Found: /favicon.ico
+[2019-01-20 16:58:01,231] [Thread-3:123145353723904:django.server] [WARNING] [basehttp.log_message Line:124]- "GET /favicon.ico HTTP/1.1" 404 85
+[2019-01-20 16:58:30,256] [Thread-2:123145376030720:django.request] [WARNING] [base.get_response Line:152]- Not Found: /
+[2019-01-20 16:58:30,258] [Thread-2:123145376030720:django.server] [WARNING] [basehttp.log_message Line:124]- "GET / HTTP/1.1" 404 3118
