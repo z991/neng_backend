@@ -46,7 +46,7 @@ Pillow==4.3.0
 pkcs7==0.1.2
 pyasn1==0.4.2
 pyasn1-modules==0.2.1
-pycares==2.3.0
+pycares==4.2.0
 pycodestyle==2.4.0
 pycrypto==2.6.1
 pycryptodome==3.6.1
